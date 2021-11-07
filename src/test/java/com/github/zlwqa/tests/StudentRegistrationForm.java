@@ -1,4 +1,4 @@
-package com.github.zlwqa;
+package com.github.zlwqa.tests;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
@@ -12,14 +12,14 @@ import static com.codeborne.selenide.Selenide.*;
 public class StudentRegistrationForm {
 
     @BeforeAll
-    static void beforeAll(){
+    static void beforeAll() {
         //Configuration.browserSize = "1920x1080";
         Configuration.startMaximized = true;
 
     }
 
     @Test
-    void fillStudentRegistrationForm(){
+    void fillStudentRegistrationForm() {
         open("https://demoqa.com/automation-practice-form");
 
         //Ввод данных в поля Name
