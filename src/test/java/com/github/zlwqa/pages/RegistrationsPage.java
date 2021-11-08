@@ -96,12 +96,16 @@ public class RegistrationsPage {
         return this;
     }
 
-    public void clickOnSubmit() {
+    public RegistrationsPage clickOnSubmit() {
         submitButton.click();
+
+        return this;
     }
 
-    public void checkModalFormTitle() {
+    public RegistrationsPage checkModalFormTitle() {
         modalForm.shouldHave(text(MODAL_FORM_TITLE_AFTER_SUBMIT));
+
+        return this;
     }
 
     public RegistrationsPage checkResultsValue(String key, String value) {

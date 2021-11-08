@@ -33,12 +33,9 @@ public class StudentRegistrationForm extends TestBase {
         registrationsPage
                 .typeCurrentAddress("st. 22 Party Congress, 42, Samara, Samara region, 443066")
                 .choiceState("haryana")
-                .choiceCity("panipat");
-
-        registrationsPage.clickOnSubmit();
-
-        registrationsPage.checkModalFormTitle();
-        registrationsPage
+                .choiceCity("panipat")
+                .clickOnSubmit()
+                .checkModalFormTitle()
                 .checkResultsValue("Student Name", "Vasilii Shalunov")
                 .checkResultsValue("Student Email", "asdori95@gmail.com")
                 .checkResultsValue("Gender", "Male")
