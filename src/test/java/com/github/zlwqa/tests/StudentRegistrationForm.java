@@ -19,16 +19,14 @@ public class StudentRegistrationForm extends TestBase {
                 .typeEmail("asdori95@gmail.com")
                 .typeNumberPhone("9277779131")
                 .choiceGender("Male");
-
         registrationsPage.calendar.setDate("29", "July", "1997");
-
         registrationsPage
                 .setValueSubject("computer science")
                 .choiceHobbies("Reading");
 
+        // TODO: Вынести в отдельный компонент;
         //Загрузка фотографии пользователя
         $("#uploadPicture").uploadFile(new File("src/test/resources/z.jpg"));
-
 
         registrationsPage
                 .typeCurrentAddress("st. 22 Party Congress, 42, Samara, Samara region, 443066")
