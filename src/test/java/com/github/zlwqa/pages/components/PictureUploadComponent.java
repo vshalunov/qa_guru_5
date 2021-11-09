@@ -8,8 +8,9 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class PictureUploadComponent {
     private SelenideElement uploadButton = $("#uploadPicture");
-    public void uploadFile(String fileForUpload){
-       uploadButton.uploadFile(new File("src/test/resources/"+ fileForUpload));
+
+    public void uploadFile(String fileForUpload) {
+        uploadButton.uploadFile(new File("src/test/resources/" + fileForUpload));
     }
 
 }

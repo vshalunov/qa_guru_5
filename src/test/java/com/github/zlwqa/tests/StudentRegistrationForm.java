@@ -2,9 +2,9 @@ package com.github.zlwqa.tests;
 
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
+import static com.github.zlwqa.tests.TestData.studentNameResultField;
+import static com.github.zlwqa.tests.TestData.*;
 
-import static com.codeborne.selenide.Selenide.*;
 
 public class StudentRegistrationForm extends TestBase {
 
@@ -13,31 +13,31 @@ public class StudentRegistrationForm extends TestBase {
     void fillStudentRegistrationForm() {
         registrationsPage
                 .openPage()
-                .typeFirstName("Vasilii")
-                .typeLastName("Shalunov")
-                .typeEmail("asdori95@gmail.com")
-                .typeNumberPhone("9277779131")
-                .choiceGender("Male");
-        registrationsPage.calendar.setDate("29", "July", "1997");
+                .typeFirstName(firstName)
+                .typeLastName(lastName)
+                .typeEmail(email)
+                .typeNumberPhone(numberPhone)
+                .choiceGender(gender);
+        registrationsPage.calendar.setDate(day, month, year);
         registrationsPage
-                .setValueSubject("computer science")
-                .choiceHobbies("Reading");
-        registrationsPage.selectPicture.uploadFile("z.jpg");
+                .setValueSubject(subject)
+                .choiceHobbies(hobbie);
+        registrationsPage.selectPicture.uploadFile(pictureName);
         registrationsPage
-                .typeCurrentAddress("st. 22 Party Congress, 42, Samara, Samara region, 443066")
-                .choiceState("haryana")
-                .choiceCity("panipat")
+                .typeCurrentAddress(address)
+                .choiceState(state)
+                .choiceCity(city)
                 .clickOnSubmit()
                 .checkModalFormTitle()
-                .checkResultsValue("Student Name", "Vasilii Shalunov")
-                .checkResultsValue("Student Email", "asdori95@gmail.com")
-                .checkResultsValue("Gender", "Male")
-                .checkResultsValue("Mobile", "9277779131")
-                .checkResultsValue("Date of Birth", "29 July,1997")
-                .checkResultsValue("Subjects", "Computer Science")
-                .checkResultsValue("Hobbies", "Reading")
-                .checkResultsValue("Picture", "z.jpg")
-                .checkResultsValue("Address", "st. 22 Party Congress, 42, Samara, Samara region, 443066")
-                .checkResultsValue("State and City", "Haryana Panipat");
+                .checkResultsValue(studentNameResultField, firstName + " " + lastName)
+                .checkResultsValue(studentEmailResultField, email)
+                .checkResultsValue(genderResultField, gender)
+                .checkResultsValue(mobileResultField, numberPhone)
+                .checkResultsValue(dateOfBirthResultField, day + " " + month + "," + year)
+                .checkResultsValue(subjectsResultField, subject)
+                .checkResultsValue(hobbiesResultField, hobbie)
+                .checkResultsValue(pictureResultField, pictureName)
+                .checkResultsValue(addressResultField, address)
+                .checkResultsValue(stateAndCityResultField, state + " " + city);
     }
 }
