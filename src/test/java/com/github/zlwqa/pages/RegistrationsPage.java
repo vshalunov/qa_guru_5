@@ -2,6 +2,7 @@ package com.github.zlwqa.pages;
 
 import com.codeborne.selenide.SelenideElement;
 import com.github.zlwqa.pages.components.CalendarComponent;
+import com.github.zlwqa.pages.components.PictureUploadComponent;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -29,11 +30,14 @@ public class RegistrationsPage {
             modalForm = $("#example-modal-sizes-title-lg");
 
     public CalendarComponent calendar = new CalendarComponent();
+    public PictureUploadComponent selectPicture = new PictureUploadComponent();
 
     //actions
-    public void openPage() {
+    public RegistrationsPage openPage() {
         open("https://demoqa.com/automation-practice-form");
         formTitle.shouldHave(text(FORM_TITLE));
+
+        return this;
     }
 
     public RegistrationsPage typeFirstName(String firstName) {

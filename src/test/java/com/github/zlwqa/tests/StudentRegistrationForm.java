@@ -11,9 +11,8 @@ public class StudentRegistrationForm extends TestBase {
 
     @Test
     void fillStudentRegistrationForm() {
-        registrationsPage.openPage();
-
         registrationsPage
+                .openPage()
                 .typeFirstName("Vasilii")
                 .typeLastName("Shalunov")
                 .typeEmail("asdori95@gmail.com")
@@ -23,11 +22,7 @@ public class StudentRegistrationForm extends TestBase {
         registrationsPage
                 .setValueSubject("computer science")
                 .choiceHobbies("Reading");
-
-        // TODO: Вынести в отдельный компонент;
-        //Загрузка фотографии пользователя
-        $("#uploadPicture").uploadFile(new File("src/test/resources/z.jpg"));
-
+        registrationsPage.selectPicture.uploadFile("z.jpg");
         registrationsPage
                 .typeCurrentAddress("st. 22 Party Congress, 42, Samara, Samara region, 443066")
                 .choiceState("haryana")
