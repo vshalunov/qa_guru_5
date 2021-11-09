@@ -33,4 +33,5 @@ public class TestData {
             email = faker.name().username() + "@gmail.com",
             numberPhone = faker.phoneNumber().subscriberNumber(10),
             address = faker.address().fullAddress();
+
 }
